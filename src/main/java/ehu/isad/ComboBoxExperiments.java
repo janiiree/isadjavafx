@@ -6,11 +6,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
+import org.w3c.dom.*;
 
 import java.io.IOException;
 import java.net.*;
 import java.io.*;
+import com.google.gson.Gson;
 
 
 public class ComboBoxExperiments extends Application  {
@@ -31,7 +32,7 @@ public class ComboBoxExperiments extends Application  {
         comboBox.setEditable(true);
 
         Label label = new Label();
-        Text text;
+        Text text=null;
 
        try {
             txanpona= this.URLirakurri(comboBox.getValue().toString());
@@ -42,8 +43,9 @@ public class ComboBoxExperiments extends Application  {
 
         text.setTextContent("prezioa: " + txanpona.price);
 
+        label.setVisible(true);
         label.setText("Txanponak: ");
-        label.setVisible();
+
 
         comboBox.setOnAction(e -> {
             System.out.println( comboBox.getValue().toString() );
